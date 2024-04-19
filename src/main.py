@@ -1,8 +1,9 @@
 from textnode import TextNode
-from htmlnode import HTMLNode, LeafNode
+from htmlnode import HTMLNode, LeafNode, ParentNode
 
-a = TextNode("This is a text node", "bold", "https://www.boot.dev")
-b = HTMLNode("a", "b", ["c"], {"d" : "e", "f" : "g"})
-c = LeafNode("a", "Some link", {"href":"https://www.google.com"})
-print(c.to_html())
+a = LeafNode(None, "valueA", {"propsa":"propsA"})
+b = LeafNode("tagB", "valueB", {"d" : "e", "f" : "g"})
+c = LeafNode("tagC", "valueC", {"href":"https://www.google.com"})
+d = ParentNode("parenttag", [a,b,c], {"parentprops":"pprops"})
+print(d.to_html())
 

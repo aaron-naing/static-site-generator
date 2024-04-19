@@ -55,8 +55,12 @@ class ParentNode(HTMLNode):
 
         if not self.children:
             raise ValueError("No children!")
-
-
+        
+        children_html = ""
+        for node in self.children:
+            children_html += node.to_html()
+        html = "<{}{}>{}</{}>".format(self.tag, self.props_to_html(), children_html, self.tag)
+        return html
 
 
 
