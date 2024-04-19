@@ -14,8 +14,9 @@ class HTMLNode:
     
     def props_to_html(self):
         html = ""
-        for k, v in self.props.items():
-            html += " {}=\"{}\"".format(k, v)
+        if self.props:
+            for k, v in self.props.items():
+                html += " {}=\"{}\"".format(k, v)
         return html
     
 
@@ -41,7 +42,7 @@ class LeafNode(HTMLNode):
         if not self.tag:
             return self.value
         
-        return "<{}>{}</{}>".format(self.tag, self.value, self.tag)
+        return "<{}{}>{}</{}>".format(self.tag, self.props_to_html(), self.value, self.tag)
     
 
 class ParentNode(HTMLNode):
