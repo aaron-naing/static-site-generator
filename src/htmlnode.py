@@ -27,6 +27,9 @@ class HTMLNode:
         repr.append("children: {}".format(",".format(self.children)))
         repr.append("props: {}".format(self.props_to_html()))
         return "\n".join(repr)
+    
+    def __eq__(self, other):
+        return (self.tag == other.tag) and (self.value == other.value) and (self.children == other.children) and (self.props == other.props)
 
 
 class LeafNode(HTMLNode):
