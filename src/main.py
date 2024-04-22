@@ -7,7 +7,8 @@ from inline_markdown import (split_nodes_delimiter,
                              extract_markdown_images, 
                              extract_markdown_links, 
                              split_nodes_image, 
-                             split_nodes_link)
+                             split_nodes_link,
+                             text_to_textnodes)
 from htmlnode import (HTMLNode, 
                       LeafNode, 
                       ParentNode)
@@ -31,9 +32,10 @@ from htmlnode import (HTMLNode,
 # text = "This is text with a [link](https://www.example.com) and [another](https://www.example.com/another)"
 # print(extract_markdown_links(text))
 
-node = TextNode("This is text with an ![first image](https://storage.googleais.com/qvault-webapp-dynamic-assets/course_assets/zjjcJKZ.png) and another ![second image](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/dfsdkjfd.png)", text_type_text)
+# node = TextNode("This is text with an ![first image](https://storage.googleais.com/qvault-webapp-dynamic-assets/course_assets/zjjcJKZ.png) and another ![second image](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/dfsdkjfd.png)", text_type_text)
+# split_nodes_image([node])
 
-
-split_nodes_image([node])
+text = "This is **text** with an *italic* word and a `code block` and an ![image](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/zjjcJKZ.png) and a [link](https://boot.dev) with some text"
+print(text_to_textnodes(text))
 
 
